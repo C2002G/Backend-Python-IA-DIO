@@ -18,7 +18,7 @@ from src.database import engine, metadata  # noqa
 from src.models.post import posts  # noqa
 
 target_metadata = metadata
-
+	z
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
