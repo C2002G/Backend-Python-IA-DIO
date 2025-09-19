@@ -19,7 +19,7 @@ def criar_tabela(cur, conexao):
 
 
 def inserir_registo(conexao, cur, nome, email):
-    novo = ("Lu", "lu@gmail.com")
+    novo = ("", "lu@gmail.com")
     cur.execute("INSERT INTO cliente(nome, email) VALUES (?,?);", novo)
     conexao.commit()
 
@@ -38,4 +38,40 @@ def deletar_registro(conexao, cur, id):
 
 # atualizar_registro(conexao, cur, 'Claudio Gabriel','Cg@gmail.com', 1 )
 
-deletar_registro(conexao, cur, 2)
+# deletar_registro(conexao, cur, 2)
+
+
+def inserir_muitos(conexao, cur, dados):
+    cur.executemany("INSERT INTO cliente (nome, email) VALUES (?,?)", dados)
+    conexao.commit()
+
+
+"""
+dados = [
+    ("lu", "lu@gmail.com"),
+    ("Floki", "floki@gmail.com"),
+    ("Skol", "skol@gmail.com"),
+    ("Ivi", "ivi@gmail.com"),
+    ("Grêmio", "gremio@gmail.com"),
+]
+
+inserir_muitos(conexao, cur, dados)
+"""
+
+
+def recuperar_cliente(cur, id):
+    cur.execute("SELECT * FROM cliente WHERE ID=?", (id,))
+    return cur.fetchone()
+
+
+cliente = recuperar_cliente(cur, 3)
+print(cliente)
+
+
+def lista_cliente(cur):
+    return cur.execute("SELECT * FROM cliente;")
+
+
+clientes = lista_cliente(cur)
+for cliente in clientes:
+    print(cliente)
