@@ -10,6 +10,9 @@ conexao = sqlite3.connect(ROOT_PATH / "meu_banco.db")
 # criar um conector
 cur = conexao.cursor()
 
+#row para printar como dicionario no dict
+cur.row_factory = sqlite3.Row
+
 
 def criar_tabela(cur, conexao):
     cur.execute(
@@ -65,7 +68,7 @@ def recuperar_cliente(cur, id):
 
 
 cliente = recuperar_cliente(cur, 3)
-print(cliente)
+print(dict(cliente))
 
 
 def lista_cliente(cur):
@@ -74,4 +77,4 @@ def lista_cliente(cur):
 
 clientes = lista_cliente(cur)
 for cliente in clientes:
-    print(cliente)
+    print(dict(cliente))
