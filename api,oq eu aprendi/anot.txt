@@ -1,0 +1,14 @@
+mais vistas no mercado
+    RESTful
+        Interações para web
+        uso de metodos http para operações CRUD
+    SOAP
+        troca de mensagens basead em XML 
+        mais tipado q RESTful
+    GraphQL
+        mais tipada porem mais flexiel q RESTful
+
+    RESTful é popular pela simplicidade, SOAP é preferido para segurança e transações complexas, enquanto GraphQL é ideal para aplicações que requerem dados dinâmicos e personalizados.
+
+    GET para leitura, POST para criação, PUT/PATCH para atualização e DELETE para remoção.
+    Essas convenções são fundamentais para o design de uma API RESTful bem projetada.
